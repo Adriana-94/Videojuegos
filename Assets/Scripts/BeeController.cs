@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BeeController : MonoBehaviour
 {
-    public float speed = 5f; // Velocidad de movimiento hacia adelante
+    
     public float dodgeSpeed = 3f; // Velocidad de movimiento lateral
     public float dodgeRange = 2f; // Rango de movimiento lateral
 
@@ -15,9 +15,6 @@ public class BeeController : MonoBehaviour
 
     void Update()
     {
-        // Movimiento hacia adelante
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
         // Movimiento lateral con límite de rango
         float horizontalInput = Input.GetAxis("Horizontal");
         Vector3 newPosition = transform.position + Vector3.right * horizontalInput * dodgeSpeed * Time.deltaTime;

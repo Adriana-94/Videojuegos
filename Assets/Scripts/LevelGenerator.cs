@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public GameObject nectarPrefab;     // Prefab del néctar
-    public GameObject obstaclePrefab;   // Prefab del obstáculo
-    public int nectarCount = 10;        // Número de objetos de néctar a generar
-    public int obstacleCount = 5;       // Número de obstáculos a generar
-    public Vector3 spawnArea = new Vector3(10, 1, 50); // Área de generación
+    public GameObject nectarPrefab;
+    public GameObject obstaclePrefab;
+    public int nectarCount = 1;
+    public int obstacleCount = 5;
+    public Vector3 spawnArea = new Vector3(10, 1, 50);
+    public Transform groundTransform; // El suelo en el que generaremos los objetos
 
     void Start()
     {
@@ -20,10 +21,11 @@ public class LevelGenerator : MonoBehaviour
         {
             Vector3 randomPosition = new Vector3(
                 Random.Range(-spawnArea.x, spawnArea.x),
-                1f,  // Altura del néctar
+                1f,
                 Random.Range(0, spawnArea.z)
             );
-            Instantiate(nectarPrefab, randomPosition, Quaternion.identity);
+            GameObject nectar = Instantiate(nectarPrefab, randomPosition, Quaternion.identity);
+            nectar.transform.parent = groundTransform; // Ancla el néctar al suelo
         }
     }
 
@@ -33,15 +35,11 @@ public class LevelGenerator : MonoBehaviour
         {
             Vector3 randomPosition = new Vector3(
                 Random.Range(-spawnArea.x, spawnArea.x),
-                0.5f,  // Altura del obstáculo
+                1f,
                 Random.Range(0, spawnArea.z)
             );
-            Instantiate(obstaclePrefab, randomPosition, Quaternion.identity);
-
-            
+            GameObject obstacle = Instantiate(obstaclePrefab, randomPosition, Quaternion.identity);
+            obstacle.transform.parent = groundTransform; // Ancla el obstáculo al suelo
         }
-
     }
-
-
 }
