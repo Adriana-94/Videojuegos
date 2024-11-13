@@ -2,41 +2,52 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public GameObject nectarPrefab;
-    public GameObject obstaclePrefab;
-    public Transform groundTransform; // Suelo en el que se generarán los objetos
+    public GameObject[] nectarPrefab;
+    public GameObject[] obstaclePrefab;
 
-    public Vector3 spawnArea = new Vector3(10, 1, 50); // Área de generación
-    public float nectarSpawnInterval = 2f;  // Intervalo para generar néctar
-    public float obstacleSpawnInterval = 3f; // Intervalo para generar obstáculos
+    public Vector3 spawnArea = new Vector3(10, 4, 30); // Área de generación
+    public float nectarStartDelay = 2.0f; // Intervalo para generar néctar
+    public float nectarRepeatRate = 2.0f;
+    public float obstacleStartDelay = 2.0f; // Intervalo para generar obstáculos
+    public float obstacleRepeatRate = 2.0f;
+
+    public Transform groundTransform; // Suelo en el que se generarán los objetos
+    public float objectLifetime = 8.0f; // Tiempo de vida para objetos generados
+    public float objectHeight = 4.0f; // Altura inicial para los objetos (igual a la altura de la abeja)
 
     void Start()
     {
-        InvokeRepeating("GenerateNectar", 0f, nectarSpawnInterval); // Genera néctar indefinidamente
-        InvokeRepeating("GenerateObstacle", 1f, obstacleSpawnInterval); // Genera obstáculos indefinidamente
+        InvokeRepeating("GenerateNectar", nectarStartDelay, nectarRepeatRate); // Genera néctar indefinidamente
+        InvokeRepeating("GenerateObstacle", obstacleStartDelay, obstacleRepeatRate); // Genera obstáculos indefinidamente
     }
 
     void GenerateNectar()
     {
-        Vector3 randomPosition = new Vector3(
-            Random.Range(-spawnArea.x, spawnArea.x),
-            1f,
-            Random.Range(0, spawnArea.z)
-        );
+        int nectarIndex = Random.Range(0, nectarPrefab.Length);
 
-        GameObject nectar = Instantiate(nectarPrefab, randomPosition, Quaternion.identity);
+        Vector3 randomPosition = GetRandomSpawnPosition();
+        GameObject nectar = Instantiate(nectarPrefab[nectarIndex], randomPosition, Quaternion.identity);
         nectar.transform.parent = groundTransform; // Ancla el néctar al suelo
+        Destroy(nectar, objectLifetime); // Destruir néctar después de un tiempo
     }
 
     void GenerateObstacle()
     {
-        Vector3 randomPosition = new Vector3(
+        int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
+
+        Vector3 randomPosition = GetRandomSpawnPosition();
+        GameObject obstacle = Instantiate(obstaclePrefab[obstacleIndex], randomPosition, Quaternion.identity);
+        obstacle.transform.parent = groundTransform; // Ancla el obstáculo al suelo
+        Destroy(obstacle, objectLifetime); // Destruir obstáculo después de un tiempo
+    }
+
+    // Función para obtener una posición aleatoria en el área de generación con altura fija
+    private Vector3 GetRandomSpawnPosition()
+    {
+        return new Vector3(
             Random.Range(-spawnArea.x, spawnArea.x),
-            0.5f,
+            objectHeight, // Fijar la altura a la de la abeja
             Random.Range(0, spawnArea.z)
         );
-
-        GameObject obstacle = Instantiate(obstaclePrefab, randomPosition, Quaternion.identity);
-        obstacle.transform.parent = groundTransform; // Ancla el obstáculo al suelo
     }
 }
