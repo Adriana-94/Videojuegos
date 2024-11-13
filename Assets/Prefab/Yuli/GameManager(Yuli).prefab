@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7204767239875965762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4041695274810608391}
+  - component: {fileID: 5316291524274376480}
+  - component: {fileID: 9057240730529352439}
+  m_Layer: 0
+  m_Name: GameManager(Yuli)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4041695274810608391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204767239875965762}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: -9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5316291524274376480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204767239875965762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1623bd0290bb2449811ba4311dccdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialMaxNectar: 10
+  nectarBar: {fileID: 0}
+--- !u!114 &9057240730529352439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204767239875965762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04bf7167f95ce94e9a9a5cb9b43ecda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nectarPrefab:
+  - {fileID: 2961304567276452125, guid: 94e549779893a3b438e28738f2da1042, type: 3}
+  obstaclePrefab:
+  - {fileID: 4863391390316160982, guid: 118111a7ee30fbe499be21cb8bc85505, type: 3}
+  - {fileID: 2475714190834253483, guid: e517a608b1d986749912e2665063e138, type: 3}
+  spawnArea: {x: 10, y: 5, z: 30}
+  nectarStartDelay: 3
+  nectarRepeatRate: 2
+  obstacleStartDelay: 3
+  obstacleRepeatRate: 4
+  groundTransform: {fileID: 0}
+  objectLifetime: 8
+  objectHeight: 4
