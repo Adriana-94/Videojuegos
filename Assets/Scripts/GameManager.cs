@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Necesario para usar UI en Unity
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private int nectarCollected = 0;
-    public int maxNectar = 30; // Valor máximo para llenar la barra de néctar
+    public int initialMaxNectar = 10; // Puntaje necesario para el primer llenado de la barra
+    private int currentMaxNectar;
     public Slider nectarBar; // Barra de progreso para el néctar
 
     void Awake()
@@ -17,9 +18,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        currentMaxNectar = initialMaxNectar; // Inicializa el valor máximo con el primer objetivo
         if (nectarBar != null)
         {
-            nectarBar.maxValue = maxNectar; // Configura el valor máximo de la barra
+            nectarBar.maxValue = currentMaxNectar; // Configura el valor máximo de la barra
             nectarBar.value = nectarCollected; // Inicializa la barra en cero
         }
     }
@@ -30,9 +32,9 @@ public class GameManager : MonoBehaviour
 
         UpdateNectarBarUI(); // Actualiza la barra de progreso
 
-        if (nectarCollected >= maxNectar)
+        if (nectarCollected >= currentMaxNectar)
         {
-            GameOver();
+            ResetNectar(); // Reinicia el progreso de la barra de néctar con un nuevo objetivo
         }
     }
 
@@ -44,9 +46,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void ResetNectar()
+    {
+        Debug.Log("¡Barra de néctar llena! Reiniciando con un nuevo objetivo...");
+
+        // Duplica el valor de maxNectar y reinicia el néctar recolectado
+        nectarCollected = 0;
+        currentMaxNectar *= 2;
+
+        // Actualiza la barra con el nuevo valor máximo
+        if (nectarBar != null)
+        {
+            nectarBar.maxValue = currentMaxNectar;
+            nectarBar.value = nectarCollected;
+        }
+    }
+
     public void GameOver()
     {
-        Debug.Log("¡Game Over!"); // Aquí puedes detener el movimiento de la abeja y mostrar un mensaje de fin
+        Debug.Log("¡Game Over!");
         Time.timeScale = 0f; // Detiene el juego
     }
 }
