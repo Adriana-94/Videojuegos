@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private int nectarCollected = 0;
-
-    public TextMeshProUGUI scoreText; // Referencia al texto de puntaje en la UI
+    public int maxNectar = 30; // Valor máximo para llenar la barra de néctar
+    public Slider nectarBar; // Barra de progreso para el néctar
 
     void Awake()
     {
@@ -15,23 +15,38 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void AddNectar()
+    private void Start()
     {
-        nectarCollected += 1; // Incrementa el puntaje por cada néctar (puedes cambiar el valor)
-        UpdateScoreUI(); // Actualiza la UI
+        if (nectarBar != null)
+        {
+            nectarBar.maxValue = maxNectar; // Configura el valor máximo de la barra
+            nectarBar.value = nectarCollected; // Inicializa la barra en cero
+        }
     }
 
-    void UpdateScoreUI()
+    public void AddNectar()
     {
-        if (scoreText != null)
+        nectarCollected += 5; // Incrementa el puntaje por cada néctar (puedes cambiar el valor)
+
+        UpdateNectarBarUI(); // Actualiza la barra de progreso
+
+        if (nectarCollected >= maxNectar)
         {
-            scoreText.text = "Puntaje: " + nectarCollected;
+            GameOver();
+        }
+    }
+
+    void UpdateNectarBarUI()
+    {
+        if (nectarBar != null)
+        {
+            nectarBar.value = nectarCollected; // Actualiza el valor de la barra con el néctar recolectado
         }
     }
 
     public void GameOver()
     {
-        Debug.Log("¡Juego terminado!");
-        // Aquí puedes detener el movimiento de la abeja y mostrar un mensaje de fin
+        Debug.Log("¡Game Over!"); // Aquí puedes detener el movimiento de la abeja y mostrar un mensaje de fin
+        Time.timeScale = 0f; // Detiene el juego
     }
 }
