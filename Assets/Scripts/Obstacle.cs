@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float moveSpeed = 2f;
+    public float moveSpeed = 5f;
+    public GameObject explosionEffect;
 
-    void Update()
+    private void Update()
     {
-        // Movimiento hacia la abeja
         transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
     }
 
@@ -14,10 +14,16 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Bee"))
         {
+            Debug.Log("Colisión con la abeja detectada");
+            // Genera el efecto de explosión si está asignado
+            if (explosionEffect != null)
+            {
+                Instantiate(explosionEffect, transform.position, transform.rotation);
+            }
+
+            // Llama a GameOver en GameManager y destruye el obstáculo
             GameManager.instance.GameOver();
-            
             Destroy(gameObject);
-            Debug.Log("El objeto se destruye");
         }
     }
 }
