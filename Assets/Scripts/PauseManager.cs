@@ -24,4 +24,14 @@ public class PauseManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void PauseGame()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void MenuGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
