@@ -82,7 +82,7 @@ MonoBehaviour:
 
     Luz Adriana Calderon
 
-    Yuliana Vida
+    Yuliana Vidal
 
 
     Thanks for playing'
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03836590d13d30c4eac4d37ec89caddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 0
+  scene: 0
   animationClip: {fileID: 7400000, guid: 4408606d7b65d5943b6681da55e9ca05, type: 2}
 --- !u!95 &1660003971907858648
 Animator:
