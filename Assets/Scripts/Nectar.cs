@@ -7,6 +7,7 @@ public class Nectar : MonoBehaviour
         if (other.CompareTag("Bee"))
         {
             GameManager.instance.AddNectar();
+            SoundManager.instance.PopSound();
             Destroy(gameObject);
         }
     }
