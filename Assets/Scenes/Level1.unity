@@ -566,6 +566,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 247916445}
+    - target: {fileID: 2610772081325267251, guid: 8a0b3cd6f5bccc440986784238672e70, type: 3}
+      propertyPath: offset.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -677,17 +681,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nectarPrefab:
   - {fileID: 2961304567276452125, guid: 94e549779893a3b438e28738f2da1042, type: 3}
+  - {fileID: 3994261902193576240, guid: 862c5ca4e0c1e8e4597cb3848b971b62, type: 3}
+  - {fileID: 7196171190067605024, guid: a81ea2b76a9bb2f4e9796768078e75df, type: 3}
+  - {fileID: 2864597203259786512, guid: 5408b58f24cca804796546e519dd2581, type: 3}
+  - {fileID: 5217715877859784404, guid: 4e256934194cdd74ea585e8e02d4de38, type: 3}
   obstaclePrefab:
-  - {fileID: 2714903918352886175, guid: 660a58f8e1a95504fb6cc75b22b50d8f, type: 3}
-  - {fileID: 4863391390316160982, guid: 118111a7ee30fbe499be21cb8bc85505, type: 3}
+  - {fileID: 1558578224865095374, guid: 660a58f8e1a95504fb6cc75b22b50d8f, type: 3}
+  - {fileID: 7356483461046589890, guid: 981488ba02a421548a97b0574b6d8407, type: 3}
   spawnArea: {x: 140, y: 4, z: 0}
   nectarStartDelay: 2
-  nectarRepeatRate: 2
+  nectarRepeatRate: 3
   obstacleStartDelay: 2
-  obstacleRepeatRate: 2
+  obstacleRepeatRate: 3
   groundTransform: {fileID: 1533847547}
-  objectLifetime: 8
-  objectHeight: 3
+  objectLifetime: 4
+  objectHeight: 4
 --- !u!4 &633482693
 Transform:
   m_ObjectHideFlags: 0
@@ -817,10 +825,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 196526735439302869, guid: 1a45b1aa4ea7f484991702e7f554e2ef, type: 3}
-      propertyPath: verticalRange
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 410098900910471315, guid: 1a45b1aa4ea7f484991702e7f554e2ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55.7
@@ -861,13 +865,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5559742789735002008, guid: 1a45b1aa4ea7f484991702e7f554e2ef, type: 3}
+      propertyPath: m_Constraints
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 9095146912699608589, guid: 1a45b1aa4ea7f484991702e7f554e2ef, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095146912699608589, guid: 1a45b1aa4ea7f484991702e7f554e2ef, type: 3}
-      propertyPath: m_TagString
-      value: Bee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
