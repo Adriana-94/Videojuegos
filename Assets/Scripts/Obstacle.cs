@@ -14,7 +14,7 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Bee"))
         {
-            Debug.Log("Colisión con la abeja detectada");
+            
             // Genera el efecto de explosión si está asignado
             if (explosionEffect != null)
             {
