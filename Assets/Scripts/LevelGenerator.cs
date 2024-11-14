@@ -19,7 +19,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
-        spawnArea = new Vector3(posX, 4, 30);
+        spawnArea = new Vector3(posX, 4, 40);
         InvokeRepeating("GenerateNectar", nectarStartDelay, nectarRepeatRate); // Genera néctar indefinidamente
         InvokeRepeating("GenerateObstacle", obstacleStartDelay, obstacleRepeatRate); // Genera obstáculos indefinidamente
     }
@@ -50,7 +50,7 @@ public class LevelGenerator : MonoBehaviour
         return new Vector3(
            posX =  Random.Range(12, -12),
             objectHeight, // Fijar la altura a la de la abeja
-            Random.Range(0, spawnArea.z)
+            Random.Range(25, spawnArea.z)
         );
     }
 }

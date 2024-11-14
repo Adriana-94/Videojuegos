@@ -3,8 +3,8 @@ using UnityEngine;
 public class GroundMover : MonoBehaviour
 {
     public float speed = 5f;         // Velocidad a la que se mueve el suelo
-    public float resetPosition = -50f; // Posición en Z para reiniciar el suelo
-    public float startPosition = 50f;  // Posición inicial en Z para el reinicio
+    public float resetPosition = -100f; // Posición en Z para reiniciar el suelo
+    public float startPosition = -6f;  // Posición inicial en Z para el reinicio
 
     void Update()
     {
