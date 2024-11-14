@@ -2947,7 +2947,7 @@ GameObject:
   - component: {fileID: 196526735439302869}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Bee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3029,10 +3029,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.47580838
-  m_Height: 1.8346074
+  m_Radius: 0.58854675
+  m_Height: 1.9539914
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8769425, z: -0.084670305}
+  m_Center: {x: -0.0066375732, y: 0.89683986, z: -0.084670305}
 --- !u!54 &5559742789735002008
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3058,7 +3058,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!114 &196526735439302869
 MonoBehaviour:
@@ -3075,5 +3075,5 @@ MonoBehaviour:
   dodgeSpeed: 15
   dodgeRange: 12
   verticalSpeed: 15
-  verticalRange: 12
+  verticalRange: 50
   minY: 0.5

@@ -39,7 +39,7 @@ public class LevelGenerator : MonoBehaviour
         int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
 
         Vector3 randomPosition = GetRandomSpawnPosition();
-        GameObject obstacle = Instantiate(obstaclePrefab[obstacleIndex], randomPosition, Quaternion.identity);
+        GameObject obstacle = Instantiate(obstaclePrefab[obstacleIndex], randomPosition, Quaternion.Euler(0f, 180f, 0f));
         obstacle.transform.parent = groundTransform; // Ancla el obstáculo al suelo
         Destroy(obstacle, objectLifetime); // Destruir obstáculo después de un tiempo
     }
