@@ -28,4 +28,9 @@ public class GameOverManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void MenuGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
