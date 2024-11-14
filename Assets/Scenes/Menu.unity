@@ -1534,6 +1534,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 436702492}
+    - target: {fileID: 270732637682852495, guid: 2e33f361cfbaacf4995b2c6b55661965, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 849731931528835414, guid: 2e33f361cfbaacf4995b2c6b55661965, type: 3}
       propertyPath: m_text
       value: Nectar Quest
