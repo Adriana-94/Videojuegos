@@ -10,6 +10,9 @@ public class BeeController : MonoBehaviour
     private float initialZ;
     private float initialY;
     public float minY = 0.5f;  // Límite en Y para no atravesar el suelo
+    public float minX = -13f;   // Límite mínimo en X
+    public float maxX = 7f;    // Límite máximo en X
+    public Vector3 newPosition;
 
     void Start()
     {
@@ -21,7 +24,7 @@ public class BeeController : MonoBehaviour
     {
         // Movimiento lateral
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 newPosition = transform.position + Vector3.right * horizontalInput * dodgeSpeed * Time.deltaTime;
+        newPosition.x += horizontalInput * dodgeSpeed * Time.deltaTime;
 
         // Movimiento vertical
         float verticalInput = Input.GetAxis("Vertical");
@@ -32,6 +35,9 @@ public class BeeController : MonoBehaviour
 
         // Limitar el movimiento en Y
         newPosition.y = Mathf.Clamp(newPosition.y, minY, initialY + verticalRange);
+
+        // Limitar el movimiento en X
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
 
         // Aplicar la nueva posición
         transform.position = newPosition;
