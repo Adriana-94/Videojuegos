@@ -48,7 +48,7 @@ public class LevelGenerator : MonoBehaviour
     private Vector3 GetRandomSpawnPosition()
     {
         return new Vector3(
-           posX =  Random.Range(50, 60),
+           posX =  Random.Range(12, -12),
             objectHeight, // Fijar la altura a la de la abeja
             Random.Range(0, spawnArea.z)
         );

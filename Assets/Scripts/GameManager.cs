@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public int initialMaxNectar = 10; // Puntaje necesario para el primer llenado de la barra
     private int currentMaxNectar;
     public Slider nectarBar; // Barra de progreso para el néctar
+    [SerializeField] private GameObject gameOver;
+    public bool isFull;
+    [SerializeField] private GameObject pause;
 
     void Awake()
     {
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
         if (nectarCollected >= currentMaxNectar)
         {
             ResetNectar(); // Reinicia el progreso de la barra de néctar con un nuevo objetivo
+            isFull = true;
         }
     }
 
@@ -64,7 +68,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("¡Game Over!");
+        gameOver.SetActive(true);
+        pause.SetActive(false);
         Time.timeScale = 0f; // Detiene el juego
     }
 }
